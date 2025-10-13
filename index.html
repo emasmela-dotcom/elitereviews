@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteReviews - Expert Product Reviews | Tech, Powersports, Vehicles & More</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Expert reviews and buying guides for tech, powersports, watersports, and vehicles. Find the best products before you buy with honest, detailed reviews.">
+    <meta name="keywords" content="product reviews, tech reviews, ATV reviews, jet ski reviews, vehicle reviews, buying guide, expert reviews">
+    <meta name="author" content="EliteReviews">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="EliteReviews - Expert Product Reviews">
+    <meta property="og:description" content="Your guide to premium purchases. Expert reviews for tech, powersports, vehicles, and more.">
+    
+    <style>
+        /* ================================
+           CSS VARIABLES & RESET
+           ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors */
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            
+            /* Neutrals */
+            --bg-dark: #0a0a0a;
+            --bg-darker: #000000;
+            --bg-card: #1a1a1a;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --border-color: rgba(148, 163, 184, 0.1);
+            
+            /* Spacing - Mobile First */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            
+            /* Typography */
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            --font-mono: 'SF Mono', Consolas, monospace;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-darker);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ================================
+           MOBILE-FIRST CONTAINER
+           ================================ */
+        .container {
+            width: 100%;
+            padding: 0 var(--spacing-md);
+            margin: 0 auto;
+        }
+
+        /* Tablet Enhancement: 768px+ */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-xl);
+                max-width: 768px;
+            }
+        }
+
+        /* Desktop Enhancement: 1024px+ */
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 var(--spacing-2xl);
+                max-width: 1280px;
+            }
+        }
+
+        /* Large Desktop Enhancement: 1440px+ */
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1440px;
+            }
+        }
+
+        /* ================================
+           HEADER & NAVIGATION (MOBILE FIRST)
+           ================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--spacing-md) 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        /* Mobile: Hide nav links, show menu button */
+        .nav-links {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Tablet Enhancement: Show nav links */
+        @media (min-width: 768px) {
+            .logo {
+                font-size: 22px;
+            }
+            
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
+            
+            .nav-links {
+                display: flex;
+                gap: var(--spacing-lg);
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* ================================
+           HERO SECTION (MOBILE FIRST)
+           ================================ */
+        .hero {
+            padding: 80px 0 40px;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(30, 64, 175, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(30, 64, 175, 0.15);
+            border: 1px solid rgba(30, 64, 175, 0.3);
+            border-radius: 100px;
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-title {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.5px;
+        }
+
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Tablet Enhancement */
+        @media (min-width: 768px) {
+            .hero {
+                min-height: 80vh;
+            }
+            
+            .hero-label {
+                font-size: 12px;
+                padding: 8px 18px;
+            }
+            
+            .hero-title {
+                font-size: 42px;
+                margin-bottom: var(--spacing-lg);
+            }
+        }
+
+        /* Desktop Enhancement */
+        @media (min-width: 1024px) {
+            .hero {
+                min-height: 85vh;
+            }
+            
+            .hero-title {
+                font-size: 56px;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.6;
+        }
+
+        /* Tablet Enhancement */
+        @media (min-width: 768px) {
+            .hero-subtitle {
+                font-size: 17px;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Desktop Enhancement */
+        @media (min-width: 1024px) {
+            .hero-subtitle {
+                font-size: 19px;
+                max-width: 700px;
+            }
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        /* Tablet Enhancement: Horizontal buttons */
+        @media (min-width: 768px) {
+            .hero-cta {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(30, 64, 175, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(30, 64, 175, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(30, 64, 175, 0.2);
+        }
+
+        /* ================================
+           STATS (MOBILE FIRST)
+           ================================ */
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg) 0;
+        }
+
+        /* Tablet Enhancement */
+        @media (min-width: 768px) {
+            .stats {
+                grid-template-columns: repeat(4, 1fr);
+                gap: var(--spacing-lg);
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Tablet Enhancement */
+        @media (min-width: 768px) {
+            .stat-number {
+                font-size: 32px;
+            }
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* ================================
+           SECTION STYLES
+           ================================ */
+        .section {
+            padding: 40px 0;
+        }
+
+        /* Tablet Enhancement */
+        @media (min-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Desktop Enhancement */
+        @media (min-width: 1024px) {
+            .section {
+                padding: 80px 0;
+            }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.5px;
+        }
+
+        /* Tablet Enhancement */
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 34px;
+            }
+        }
+
+        /* Desktop Enhancement */
+        @media (min-width: 1024px) {
+            .section-title {
+                font-size: 40px;
+            }
+        }
+
+        .section-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        /* Tablet Enhancement */
+        @media (min-width: 768px) {
+            .section-description {
+                font-size: 16px;
+            }
+        }
+
+        /* ================================
+           CATEGORY GRID (MOBILE FIRST)
+           ================================ */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        /* Tablet Enhancement: 2 columns */
+        @media (min-width: 768px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-lg);
+            }
+        }
+
+        /* Desktop Enhancement: 4 columns */
+        @media (min-width: 1024px) {
+            .categories-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: var(--spacing-lg);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(30, 64, 175, 0.4);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .category-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .category-count {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ================================
+           DISCLOSURE BANNER
+           ================================ */
+        .disclosure {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .disclosure p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .disclosure strong {
+            color: var(--accent);
+        }
+
+        /* ================================
+           PRODUCTS GRID & CARDS
+           ================================ */
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        /* Tablet Enhancement: 2 columns */
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Desktop Enhancement: 3 columns */
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(30, 64, 175, 0.4);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(139, 92, 246, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--primary);
+            color: white;
+        }
+
+        .product-content {
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .product-category {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent);
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 14px;
+        }
+
+        .rating-text {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .product-cta {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .product-card:hover .product-cta {
+            color: var(--accent);
+        }
+
+        /* ================================
+           FOOTER (MOBILE FIRST)
+           ================================ */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-2xl) 0 var(--spacing-lg);
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        /* Tablet Enhancement: 2x2 grid */
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Desktop Enhancement: 4 columns */
+        @media (min-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-brand {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-column h4 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* Tablet Enhancement */
+        @media (min-width: 768px) {
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+            }
+        }
+
+        /* ================================
+           ANIMATIONS
+           ================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo">
+                    <div class="logo-icon">⭐</div>
+                    <span>EliteReviews</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#categories" class="nav-link">Categories</a>
+                    <a href="#reviews" class="nav-link">Reviews</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate">
+                <span class="hero-label">Expert Reviews</span>
+                <h1 class="hero-title">
+                    Your Guide to <span class="gradient-text">Premium Purchases</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Honest, in-depth reviews for tech, powersports, watersports, vehicles, and vacation packages. Make confident buying decisions with expert guidance.
+                </p>
+                <div class="hero-cta">
+                    <a href="#categories" class="btn btn-primary">Browse Categories</a>
+                    <a href="#reviews" class="btn btn-secondary">Latest Reviews</a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">250+</div>
+                        <div class="stat-label">Products Reviewed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Main Categories</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100K+</div>
+                        <div class="stat-label">Monthly Readers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliate Disclosure -->
+    <div class="container">
+        <div class="disclosure">
+            <p><strong>Affiliate Disclosure:</strong> EliteReviews participates in various affiliate programs. We may earn a commission when you purchase through our links, at no extra cost to you. This helps us provide quality content while remaining completely honest in our reviews.</p>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Browse by Category</h2>
+                <p class="section-description">Explore expert reviews organized by product type</p>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="#tech" class="category-card">
+                    <div class="category-icon">💻</div>
+                    <div class="category-name">Tech & Electronics</div>
+                    <div class="category-count">50+ reviews</div>
+                </a>
+                
+                <a href="#powersports" class="category-card">
+                    <div class="category-icon">🏍️</div>
+                    <div class="category-name">Powersports</div>
+                    <div class="category-count">30+ reviews</div>
+                </a>
+                
+                <a href="#watersports" class="category-card">
+                    <div class="category-icon">🌊</div>
+                    <div class="category-name">Watersports</div>
+                    <div class="category-count">25+ reviews</div>
+                </a>
+                
+                <a href="#vehicles" class="category-card">
+                    <div class="category-icon">🚗</div>
+                    <div class="category-name">Vehicles</div>
+                    <div class="category-count">20+ reviews</div>
+                </a>
+                
+                <a href="#vacation" class="category-card">
+                    <div class="category-icon">✈️</div>
+                    <div class="category-name">Vacation Packages</div>
+                    <div class="category-count">15+ reviews</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section" id="reviews" style="background: rgba(0,0,0,0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Reviews</h2>
+                <p class="section-description">Our most recent in-depth product reviews</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- ADD NEW PRODUCTS HERE -->
+                
+                <!-- TECH & ELECTRONICS -->
+                
+                <!--Product 1 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tech</div>
+                        <h3 class="product-title">MacBook Pro 16" M3 Max</h3>
+                        <p class="product-description">Apple's most powerful laptop delivers incredible performance for creative professionals with stunning display and all-day battery life.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$3,499</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 2 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1695653420076-3ec3409d39bc?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tech</div>
+                        <h3 class="product-title">iPhone 15 Pro Max</h3>
+                        <p class="product-description">The ultimate iPhone with titanium design, A17 Pro chip, and pro camera system. Game-changing performance in your pocket.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$1,199</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 3 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tech</div>
+                        <h3 class="product-title">Dell XPS 15 (2025)</h3>
+                        <p class="product-description">Premium Windows laptop with stunning OLED display, powerful Intel processors, and exceptional build quality for professionals.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.7/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$1,899</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 4 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tech</div>
+                        <h3 class="product-title">Sony WH-1000XM5</h3>
+                        <p class="product-description">Industry-leading noise cancellation headphones with exceptional sound quality, comfort, and battery life for travel or work.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$399</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 5 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1616763355548-1b606f439f86?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tech</div>
+                        <h3 class="product-title">LG C3 OLED 65"</h3>
+                        <p class="product-description">Stunning OLED TV with perfect blacks, vibrant colors, and ideal for gaming with 120Hz refresh rate and low input lag.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$1,799</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 6 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tech</div>
+                        <h3 class="product-title">Sony A7 IV Mirrorless</h3>
+                        <p class="product-description">Professional-grade camera with 33MP full-frame sensor, incredible autofocus, and hybrid photo/video capabilities.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$2,498</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 7 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tech</div>
+                        <h3 class="product-title">Samsung Galaxy S24 Ultra</h3>
+                        <p class="product-description">Android flagship with S Pen, incredible 200MP camera, and built-in AI features for productivity and creativity.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.7/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$1,299</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 8 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tech</div>
+                        <h3 class="product-title">iPad Pro 12.9" M2</h3>
+                        <p class="product-description">Most powerful tablet with desktop-class performance, stunning mini-LED display, and Apple Pencil support for creators.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$1,099</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 9 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tech</div>
+                        <h3 class="product-title">ASUS ROG Zephyrus G14</h3>
+                        <p class="product-description">Portable gaming powerhouse with AMD Ryzen 9, RTX 4090, and stunning display. Perfect for gamers on the go.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.6/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$2,299</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 10 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tech</div>
+                        <h3 class="product-title">DJI Mini 4 Pro Drone</h3>
+                        <p class="product-description">Ultra-portable drone with 4K HDR video, omnidirectional obstacle sensing, and extended flight time for aerial photography.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$759</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- POWERSPORTS -->
+
+                <!-- Product 11 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1558980664-1db506751c6c?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Powersports</div>
+                        <h3 class="product-title">Honda CRF450R</h3>
+                        <p class="product-description">Championship-winning motocross bike with powerful engine, advanced suspension, and race-ready performance straight from the showroom.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$9,799</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 12 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Powersports</div>
+                        <h3 class="product-title">Harley-Davidson Street Bob 114</h3>
+                        <p class="product-description">Iconic cruiser with Milwaukee-Eight 114 engine, classic bobber styling, and comfortable ride for long-distance cruising.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.7/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$14,999</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 13 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Powersports</div>
+                        <h3 class="product-title">Polaris RZR Pro XP 4</h3>
+                        <p class="product-description">Extreme off-road side-by-side with 181 HP, four-seat configuration, and industry-leading suspension for desert domination.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$29,999</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 14 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1599819177078-5b59e2a6c4a6?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Powersports</div>
+                        <h3 class="product-title">Yamaha YZ450F</h3>
+                        <p class="product-description">Professional-grade motocross bike with electric start, reverse cylinder head, and unmatched corner speed for competitive racing.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$9,599</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 15 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Powersports</div>
+                        <h3 class="product-title">Can-Am Maverick X3 Turbo RR</h3>
+                        <p class="product-description">High-performance side-by-side with 200 HP turbocharged engine, FOX shocks, and aggressive styling for extreme terrain.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$26,499</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 16 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1542903660-eedba2cda473?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Powersports</div>
+                        <h3 class="product-title">Honda Talon 1000X-4</h3>
+                        <p class="product-description">Four-seat sport side-by-side with 104 HP, quick-shifting DCT transmission, and Honda reliability for trail adventures.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.7/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$24,299</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 17 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Powersports</div>
+                        <h3 class="product-title">Yamaha Raptor 700R</h3>
+                        <p class="product-description">Performance sport ATV with 686cc engine, aggressive styling, and race-inspired suspension for competitive riding.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$9,099</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 18 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1598808503491-eaecb3cf4e55?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Powersports</div>
+                        <h3 class="product-title">Kawasaki Ninja ZX-6R</h3>
+                        <p class="product-description">Middleweight supersport with race-bred engine, agile handling, and track-focused design for spirited riding.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$11,599</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 19 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1568772616779-d74f5e63ae8f?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Powersports</div>
+                        <h3 class="product-title">BMW R 1250 GS Adventure</h3>
+                        <p class="product-description">Ultimate adventure motorcycle with 136 HP boxer engine, advanced electronics, and go-anywhere capability for world touring.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$19,495</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 20 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1609630045665-889c0902e97a?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Powersports</div>
+                        <h3 class="product-title">KTM 450 SX-F Factory Edition</h3>
+                        <p class="product-description">Factory race replica with premium components, SOHC engine, and championship-winning DNA for professional motocross.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$12,299</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- WATERSPORTS -->
+
+                <!-- Product 21 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Watersports</div>
+                        <h3 class="product-title">Yamaha WaveRunner VX Cruiser HO</h3>
+                        <p class="product-description">Comfortable cruiser PWC with 180 HP, large fuel tank, and plush seating for all-day riding with family and friends.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$13,799</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 22 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Watersports</div>
+                        <h3 class="product-title">Sea-Doo Spark Trixx 3up</h3>
+                        <p class="product-description">Playful entry-level jet ski perfect for tricks, affordable fun, and learning to ride. Lightweight and easy to maneuver.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.6/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$7,999</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 23 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1615092296061-e2ccfeb2f3d6?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Watersports</div>
+                        <h3 class="product-title">Hobie Mirage Pro Angler 12</h3>
+                        <p class="product-description">Premium fishing kayak with MirageDrive pedal propulsion, incredible stability, and tons of storage for serious anglers.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$3,699</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 24 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Watersports</div>
+                        <h3 class="product-title">Kawasaki Jet Ski Ultra 310LX</h3>
+                        <p class="product-description">Luxury personal watercraft with supercharged 310 HP engine, premium seating, and advanced electronics for touring.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$16,999</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 25 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1544511916-0148ccdeb877?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Watersports</div>
+                        <h3 class="product-title">Red Paddle Co Explorer 12'6"</h3>
+                        <p class="product-description">Premium inflatable SUP board with military-grade construction, excellent tracking, and perfect for touring and fitness.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$1,295</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 26 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1593642634367-d91a135587b5?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Watersports</div>
+                        <h3 class="product-title">Tracker Pro Team 175 TXW</h3>
+                        <p class="product-description">Affordable aluminum fishing boat with trolling motor, livewell, and tournament-ready features for bass fishing.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.7/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$22,995</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 27 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1534263585126-e0e2f212b130?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Watersports</div>
+                        <h3 class="product-title">Bennington 23 SSRX Pontoon</h3>
+                        <p class="product-description">Luxury pontoon boat with premium amenities, comfortable seating for 12, and smooth ride for family entertaining.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$38,500</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 28 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1544546795-1b6b9b49d3ae?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Watersports</div>
+                        <h3 class="product-title">Sea-Doo Wake Pro 230</h3>
+                        <p class="product-description">Tow sports specialist PWC with Ski Mode, LinQ system, and powerful 230 HP for wakeboarding and water skiing.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.7/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$14,299</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 29 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Watersports</div>
+                        <h3 class="product-title">Boston Whaler 170 Montauk</h3>
+                        <p class="product-description">Iconic unsinkable fishing boat with legendary durability, clean deck layout, and classic design for offshore adventures.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$49,999</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 30 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1609871974542-d45c8b2315eb?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Watersports</div>
+                        <h3 class="product-title">Perception Pescador Pro 12</h3>
+                        <p class="product-description">Versatile sit-on-top fishing kayak with comfortable seating, plenty of storage, and great stability for beginners.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.6/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$899</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- VEHICLES -->
+
+                <!-- Product 31 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vehicles</div>
+                        <h3 class="product-title">2025 Ford F-150 Lightning</h3>
+                        <p class="product-description">Electric pickup truck with 320-mile range, massive frunk, Pro Power Onboard, and true truck capability with zero emissions.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$54,995</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 32 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1549927681-0b673b8243ab?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vehicles</div>
+                        <h3 class="product-title">2025 Honda CR-V Hybrid</h3>
+                        <p class="product-description">Best-selling compact SUV with excellent fuel economy, spacious interior, Honda reliability, and standard AWD.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.7/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$35,650</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 33 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vehicles</div>
+                        <h3 class="product-title">2025 Tesla Model 3 Long Range</h3>
+                        <p class="product-description">Sleek electric sedan with 358-mile range, minimalist interior, Autopilot, and industry-leading tech. Pure EV performance.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.6/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$46,990</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 34 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vehicles</div>
+                        <h3 class="product-title">2025 BMW X5 M60i</h3>
+                        <p class="product-description">Luxury performance SUV with 523 HP twin-turbo V8, premium interior, advanced tech, and driving dynamics that defy physics.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$83,900</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 35 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vehicles</div>
+                        <h3 class="product-title">2025 Mazda CX-5 Turbo</h3>
+                        <p class="product-description">Premium compact SUV with upscale interior, engaging driving dynamics, and turbocharged performance at a great value.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$31,950</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 36 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vehicles</div>
+                        <h3 class="product-title">2025 RAM 1500 Limited</h3>
+                        <p class="product-description">Luxury pickup with 12-inch touchscreen, premium leather, smooth ride, and powerful HEMI V8. The most refined truck available.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.7/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$62,895</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 37 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vehicles</div>
+                        <h3 class="product-title">2025 Toyota RAV4 Prime</h3>
+                        <p class="product-description">Plug-in hybrid SUV with 42 miles electric range, 302 HP combined, and legendary Toyota reliability for eco-conscious families.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.7/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$43,975</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 38 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1609510168141-3bae4e54c5e6?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vehicles</div>
+                        <h3 class="product-title">2025 Porsche Cayenne S</h3>
+                        <p class="product-description">Performance luxury SUV with 348 HP V6, Porsche handling, opulent interior, and everyday usability with sports car soul.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$88,600</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 39 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vehicles</div>
+                        <h3 class="product-title">2025 Subaru Outback Wilderness</h3>
+                        <p class="product-description">Adventure-ready wagon with standard AWD, increased ground clearance, rugged styling, and go-anywhere capability.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$41,090</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 40 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vehicles</div>
+                        <h3 class="product-title">2025 Chevrolet Silverado 1500 RST</h3>
+                        <p class="product-description">Workhorse pickup with advanced trailering tech, powerful engines, comfortable ride, and modern connected features.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.6/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$46,600</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- VACATION PACKAGES -->
+
+                <!-- Product 41 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vacation</div>
+                        <h3 class="product-title">Maldives All-Inclusive Resort</h3>
+                        <p class="product-description">7 nights in overwater villa with all meals, drinks, spa treatments, and water sports. Ultimate luxury tropical escape.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$4,999/person</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 42 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vacation</div>
+                        <h3 class="product-title">Colorado Ski Resort Package</h3>
+                        <p class="product-description">5 nights at Vail with lift tickets, ski rentals, mountain-view room, and breakfast. Perfect winter adventure.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$2,399/person</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 43 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vacation</div>
+                        <h3 class="product-title">Caribbean Cruise 7-Day</h3>
+                        <p class="product-description">Royal Caribbean cruise visiting 5 islands with all meals, entertainment, and onboard activities. Balcony cabin included.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">4.7/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$1,899/person</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 44 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vacation</div>
+                        <h3 class="product-title">Paris & Rome Europe Tour</h3>
+                        <p class="product-description">10-day guided tour covering two iconic cities with hotels, breakfast, tours, and train between cities. Cultural immersion.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$3,799/person</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 45 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vacation</div>
+                        <h3 class="product-title">Hawaii Maui Resort Package</h3>
+                        <p class="product-description">6 nights beachfront resort with car rental, lei greeting, spa credit, and daily breakfast. Island paradise awaits.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$2,999/person</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 46 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vacation</div>
+                        <h3 class="product-title">Santorini Greece Honeymoon</h3>
+                        <p class="product-description">5 nights in cliffside cave hotel with private hot tub, sunset dinner, couples massage, and wine tasting. Pure romance.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$3,499/couple</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 47 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80');">
+                        <span class="product-badge">Editor's Pick</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vacation</div>
+                        <h3 class="product-title">African Safari Adventure</h3>
+                        <p class="product-description">8-day Kenya safari with luxury tented camps, game drives, Masai Mara visit, all meals, and expert guides. Wildlife immersion.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$5,999/person</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 48 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=600&q=80');">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vacation</div>
+                        <h3 class="product-title">Iceland Northern Lights Tour</h3>
+                        <p class="product-description">6 nights exploring glaciers, waterfalls, Blue Lagoon, and northern lights hunting with 4x4 rental and hotel included.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$2,799/person</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 49 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80');">
+                        <span class="product-badge">Hot Deal</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vacation</div>
+                        <h3 class="product-title">Canadian Rockies Train Journey</h3>
+                        <p class="product-description">7-day luxury train experience through Banff and Jasper with glass-dome cars, gourmet meals, and mountain lodge stays.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.9/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$4,299/person</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 50 -->
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=600&q=80');">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Vacation</div>
+                        <h3 class="product-title">Bali Wellness Retreat</h3>
+                        <p class="product-description">10 nights at luxury resort with daily yoga, spa treatments, healthy cuisine, and cultural excursions. Mind, body, soul.</p>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$3,199/person</div>
+                            <div class="product-cta">View Deal →</div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="/" class="footer-logo">
+                        <div class="logo-icon">⭐</div>
+                        <span>EliteReviews</span>
+                    </a>
+                    <p class="footer-tagline">Your guide to premium purchases. Expert reviews, smart choices.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#tech">Tech & Electronics</a></li>
+                        <li><a href="#powersports">Powersports</a></li>
+                        <li><a href="#watersports">Watersports</a></li>
+                        <li><a href="#vehicles">Vehicles</a></li>
+                        <li><a href="#vacation">Vacation Packages</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#reviews">All Reviews</a></li>
+                        <li><a href="#buying-guides">Buying Guides</a></li>
+                        <li><a href="#comparisons">Comparisons</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#disclosure">Affiliate Disclosure</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 EliteReviews. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            alert('Mobile menu - coming soon!');
+        });
+
+        // Category filtering
+        const categoryCards = document.querySelectorAll('.category-card');
+        const productCards = document.querySelectorAll('.product-card');
+        const sectionTitle = document.querySelector('#reviews .section-title');
+        const sectionDescription = document.querySelector('#reviews .section-description');
+        
+        let currentFilter = 'all';
+        
+        categoryCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const categoryId = this.getAttribute('href').replace('#', '');
+                const categoryName = this.querySelector('.category-name').textContent;
+                
+                currentFilter = categoryId;
+                
+                // Update section header
+                sectionTitle.textContent = categoryName + ' Reviews';
+                sectionDescription.textContent = 'Expert reviews and buying guides for ' + categoryName.toLowerCase();
+                
+                // Scroll to reviews section
+                document.querySelector('#reviews').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Filter products after scroll
+                setTimeout(() => {
+                    productCards.forEach(product => {
+                        const productCategory = product.querySelector('.product-category').textContent.toLowerCase();
+                        let matchesFilter = currentFilter === 'all';
+                        
+                        // Match category names
+                        if (categoryId === 'tech' && productCategory === 'tech') matchesFilter = true;
+                        if (categoryId === 'powersports' && productCategory === 'powersports') matchesFilter = true;
+                        if (categoryId === 'watersports' && productCategory === 'watersports') matchesFilter = true;
+                        if (categoryId === 'vehicles' && productCategory === 'vehicles') matchesFilter = true;
+                        if (categoryId === 'vacation' && productCategory === 'vacation') matchesFilter = true;
+                        
+                        if (matchesFilter) {
+                            product.style.display = 'flex';
+                            product.style.animation = 'fadeInUp 0.5s ease-out';
+                        } else {
+                            product.style.display = 'none';
+                        }
+                    });
+                }, 500);
+            });
+        });
+        
+        // Reset filter when clicking "Latest Reviews" or main nav
+        document.querySelectorAll('a[href="#reviews"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.textContent.includes('Reviews') || this.textContent.includes('Latest')) {
+                    currentFilter = 'all';
+                    if (sectionTitle) sectionTitle.textContent = 'Latest Reviews';
+                    if (sectionDescription) sectionDescription.textContent = 'Our most recent in-depth product reviews';
+                    productCards.forEach(product => {
+                        product.style.display = 'flex';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
