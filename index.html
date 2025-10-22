@@ -677,6 +677,149 @@
         }
 
         /* ================================
+           VENDOR SECTIONS (MOBILE FIRST)
+           ================================ */
+        .vendors-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+        }
+
+        .vendor-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .vendor-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .vendor-section.coming-soon {
+            opacity: 0.6;
+            position: relative;
+        }
+
+        .vendor-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .vendor-logo {
+            font-size: 32px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            border-radius: 12px;
+        }
+
+        .vendor-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .vendor-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .coming-soon-badge {
+            background: var(--accent);
+            color: var(--bg-darker);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: auto;
+        }
+
+        .vendor-products {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .vendor-product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .vendor-product-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 4px 0;
+        }
+
+        .vendor-product-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0 0 8px 0;
+        }
+
+        .vendor-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .vendor-cta {
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .vendor-cta:hover {
+            background: var(--primary-dark);
+        }
+
+        .coming-soon-placeholder {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Tablet Enhancement */
+        @media (min-width: 768px) {
+            .vendors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Desktop Enhancement */
+        @media (min-width: 1024px) {
+            .vendors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ================================
            FOOTER (MOBILE FIRST)
            ================================ */
         .footer {
@@ -801,6 +944,7 @@
                 </a>
                 <div class="nav-links">
                     <a href="#categories" class="nav-link">Categories</a>
+                    <a href="#vendors" class="nav-link">Vendors</a>
                     <a href="#reviews" class="nav-link">Reviews</a>
                     <a href="#about" class="nav-link">About</a>
                     <a href="#contact" class="nav-link">Contact</a>
@@ -898,6 +1042,98 @@
                     <div class="category-name">Vacation Packages</div>
                     <div class="category-count">15+ reviews</div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vendor Sections -->
+    <section class="section" id="vendors">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Vendor</h2>
+                <p class="section-description">Browse products from trusted retailers and brands</p>
+            </div>
+            
+            <div class="vendors-grid">
+                <!-- Amazon Section -->
+                <div class="vendor-section">
+                    <div class="vendor-header">
+                        <div class="vendor-logo">🛒</div>
+                        <h3 class="vendor-name">Amazon</h3>
+                        <p class="vendor-description">Prime shipping, competitive prices, and vast selection</p>
+                    </div>
+                    <div class="vendor-products">
+                        <div class="vendor-product">
+                            <div class="vendor-product-info">
+                                <h4>MacBook Pro 16" M3 Max</h4>
+                                <p>Apple's most powerful laptop</p>
+                                <div class="vendor-price">$3,499</div>
+                            </div>
+                            <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="vendor-cta">View on Amazon →</a>
+                        </div>
+                        <div class="vendor-product">
+                            <div class="vendor-product-info">
+                                <h4>iPhone 15 Pro Max</h4>
+                                <p>Ultimate iPhone with titanium design</p>
+                                <div class="vendor-price">$1,199</div>
+                            </div>
+                            <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="vendor-cta">View on Amazon →</a>
+                        </div>
+                        <div class="vendor-product">
+                            <div class="vendor-product-info">
+                                <h4>Dell XPS 15</h4>
+                                <p>Premium Windows laptop</p>
+                                <div class="vendor-price">$1,999</div>
+                            </div>
+                            <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="vendor-cta">View on Amazon →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Best Buy Section (Coming Soon) -->
+                <div class="vendor-section coming-soon">
+                    <div class="vendor-header">
+                        <div class="vendor-logo">🏪</div>
+                        <h3 class="vendor-name">Best Buy</h3>
+                        <p class="vendor-description">Electronics and tech expertise</p>
+                        <div class="coming-soon-badge">Coming Soon</div>
+                    </div>
+                    <div class="vendor-products">
+                        <div class="coming-soon-placeholder">
+                            <p>Best Buy product reviews coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REI Section (Coming Soon) -->
+                <div class="vendor-section coming-soon">
+                    <div class="vendor-header">
+                        <div class="vendor-logo">🏔️</div>
+                        <h3 class="vendor-name">REI</h3>
+                        <p class="vendor-description">Outdoor gear and adventure equipment</p>
+                        <div class="coming-soon-badge">Coming Soon</div>
+                    </div>
+                    <div class="vendor-products">
+                        <div class="coming-soon-placeholder">
+                            <p>REI outdoor gear reviews coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auto Dealers Section (Coming Soon) -->
+                <div class="vendor-section coming-soon">
+                    <div class="vendor-header">
+                        <div class="vendor-logo">🚗</div>
+                        <h3 class="vendor-name">Auto Dealers</h3>
+                        <p class="vendor-description">New and used vehicles from trusted dealers</p>
+                        <div class="coming-soon-badge">Coming Soon</div>
+                    </div>
+                    <div class="vendor-products">
+                        <div class="coming-soon-placeholder">
+                            <p>Vehicle dealer partnerships coming soon!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
