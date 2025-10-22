@@ -677,145 +677,82 @@
         }
 
         /* ================================
-           VENDOR SECTIONS (MOBILE FIRST)
+           VENDOR FILTERS (MOBILE FIRST)
            ================================ */
-        .vendors-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-xl);
+        .vendor-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            justify-content: center;
         }
 
-        .vendor-section {
+        .vendor-filter {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: var(--spacing-lg);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .vendor-section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .vendor-section.coming-soon {
-            opacity: 0.6;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
             position: relative;
         }
 
-        .vendor-header {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
-            padding-bottom: var(--spacing-md);
-            border-bottom: 1px solid var(--border-color);
+        .vendor-filter:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
         }
 
-        .vendor-logo {
-            font-size: 32px;
-            width: 48px;
-            height: 48px;
+        .vendor-filter.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .vendor-filter.coming-soon {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .vendor-filter.coming-soon:hover {
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            transform: none;
+            box-shadow: none;
+        }
+
+        .vendor-icon {
+            font-size: 18px;
+            width: 24px;
+            height: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--primary);
-            border-radius: 12px;
-        }
-
-        .vendor-name {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 0;
-        }
-
-        .vendor-description {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin: 0;
         }
 
         .coming-soon-badge {
             background: var(--accent);
             color: var(--bg-darker);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-left: auto;
-        }
-
-        .vendor-products {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-        }
-
-        .vendor-product {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .vendor-product-info h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 0 0 4px 0;
-        }
-
-        .vendor-product-info p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin: 0 0 8px 0;
-        }
-
-        .vendor-price {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .vendor-cta {
-            background: var(--primary);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .vendor-cta:hover {
-            background: var(--primary-dark);
-        }
-
-        .coming-soon-placeholder {
-            text-align: center;
-            padding: var(--spacing-xl);
-            color: var(--text-muted);
-            font-style: italic;
+            margin-left: var(--spacing-xs);
         }
 
         /* Tablet Enhancement */
         @media (min-width: 768px) {
-            .vendors-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Desktop Enhancement */
-        @media (min-width: 1024px) {
-            .vendors-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .vendor-filters {
+                justify-content: flex-start;
             }
         }
 
@@ -944,7 +881,6 @@
                 </a>
                 <div class="nav-links">
                     <a href="#categories" class="nav-link">Categories</a>
-                    <a href="#vendors" class="nav-link">Vendors</a>
                     <a href="#reviews" class="nav-link">Reviews</a>
                     <a href="#about" class="nav-link">About</a>
                     <a href="#contact" class="nav-link">Contact</a>
@@ -1046,98 +982,6 @@
         </div>
     </section>
 
-    <!-- Vendor Sections -->
-    <section class="section" id="vendors">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Shop by Vendor</h2>
-                <p class="section-description">Browse products from trusted retailers and brands</p>
-            </div>
-            
-            <div class="vendors-grid">
-                <!-- Amazon Section -->
-                <div class="vendor-section">
-                    <div class="vendor-header">
-                        <div class="vendor-logo">🛒</div>
-                        <h3 class="vendor-name">Amazon</h3>
-                        <p class="vendor-description">Prime shipping, competitive prices, and vast selection</p>
-                    </div>
-                    <div class="vendor-products">
-                        <div class="vendor-product">
-                            <div class="vendor-product-info">
-                                <h4>MacBook Pro 16" M3 Max</h4>
-                                <p>Apple's most powerful laptop</p>
-                                <div class="vendor-price">$3,499</div>
-                            </div>
-                            <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="vendor-cta">View on Amazon →</a>
-                        </div>
-                        <div class="vendor-product">
-                            <div class="vendor-product-info">
-                                <h4>iPhone 15 Pro Max</h4>
-                                <p>Ultimate iPhone with titanium design</p>
-                                <div class="vendor-price">$1,199</div>
-                            </div>
-                            <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="vendor-cta">View on Amazon →</a>
-                        </div>
-                        <div class="vendor-product">
-                            <div class="vendor-product-info">
-                                <h4>Dell XPS 15</h4>
-                                <p>Premium Windows laptop</p>
-                                <div class="vendor-price">$1,999</div>
-                            </div>
-                            <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="vendor-cta">View on Amazon →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Best Buy Section (Coming Soon) -->
-                <div class="vendor-section coming-soon">
-                    <div class="vendor-header">
-                        <div class="vendor-logo">🏪</div>
-                        <h3 class="vendor-name">Best Buy</h3>
-                        <p class="vendor-description">Electronics and tech expertise</p>
-                        <div class="coming-soon-badge">Coming Soon</div>
-                    </div>
-                    <div class="vendor-products">
-                        <div class="coming-soon-placeholder">
-                            <p>Best Buy product reviews coming soon!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- REI Section (Coming Soon) -->
-                <div class="vendor-section coming-soon">
-                    <div class="vendor-header">
-                        <div class="vendor-logo">🏔️</div>
-                        <h3 class="vendor-name">REI</h3>
-                        <p class="vendor-description">Outdoor gear and adventure equipment</p>
-                        <div class="coming-soon-badge">Coming Soon</div>
-                    </div>
-                    <div class="vendor-products">
-                        <div class="coming-soon-placeholder">
-                            <p>REI outdoor gear reviews coming soon!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Auto Dealers Section (Coming Soon) -->
-                <div class="vendor-section coming-soon">
-                    <div class="vendor-header">
-                        <div class="vendor-logo">🚗</div>
-                        <h3 class="vendor-name">Auto Dealers</h3>
-                        <p class="vendor-description">New and used vehicles from trusted dealers</p>
-                        <div class="coming-soon-badge">Coming Soon</div>
-                    </div>
-                    <div class="vendor-products">
-                        <div class="coming-soon-placeholder">
-                            <p>Vehicle dealer partnerships coming soon!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Reviews Section -->
     <section class="section" id="reviews" style="background: rgba(0,0,0,0.3);">
         <div class="container">
@@ -1146,13 +990,40 @@
                 <p class="section-description">Our most recent in-depth product reviews</p>
             </div>
             
+            <!-- Vendor Filter Buttons -->
+            <div class="vendor-filters">
+                <div class="vendor-filter active" data-vendor="all">
+                    <div class="vendor-icon">⭐</div>
+                    <span>All Products</span>
+                </div>
+                <div class="vendor-filter" data-vendor="amazon">
+                    <div class="vendor-icon">🛒</div>
+                    <span>Browse Amazon</span>
+                </div>
+                <div class="vendor-filter coming-soon" data-vendor="bestbuy">
+                    <div class="vendor-icon">🏪</div>
+                    <span>Best Buy</span>
+                    <span class="coming-soon-badge">Soon</span>
+                </div>
+                <div class="vendor-filter coming-soon" data-vendor="rei">
+                    <div class="vendor-icon">🏔️</div>
+                    <span>REI</span>
+                    <span class="coming-soon-badge">Soon</span>
+                </div>
+                <div class="vendor-filter coming-soon" data-vendor="dealers">
+                    <div class="vendor-icon">🚗</div>
+                    <span>Auto Dealers</span>
+                    <span class="coming-soon-badge">Soon</span>
+                </div>
+            </div>
+
             <div class="products-grid">
                 <!-- ADD NEW PRODUCTS HERE -->
                 
                 <!-- TECH & ELECTRONICS -->
                 
                 <!--Product 1 -->
-                <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="product-card">
+                <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="product-card" data-vendor="amazon">
                     <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80');">
                         <span class="product-badge">Editor's Pick</span>
                     </div>
@@ -1172,7 +1043,7 @@
                 </a>
 
                 <!-- Product 2 -->
-                <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="product-card">
+                <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="product-card" data-vendor="amazon">
                     <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1695653420076-3ec3409d39bc?w=600&q=80');">
                         <span class="product-badge">Hot Deal</span>
                     </div>
@@ -1192,7 +1063,7 @@
                 </a>
 
                 <!-- Product 3 -->
-                <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="product-card">
+                <a href="https://amzn.to/3QxY8K9" target="_blank" rel="noopener" class="product-card" data-vendor="amazon">
                     <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80');">
                         <span class="product-badge">New</span>
                     </div>
@@ -2281,6 +2152,52 @@
                         }
                     });
                 }, 500);
+            });
+        });
+        
+        // Vendor filtering
+        const vendorFilters = document.querySelectorAll('.vendor-filter');
+        
+        vendorFilters.forEach(filter => {
+            filter.addEventListener('click', function() {
+                if (this.classList.contains('coming-soon')) return;
+                
+                const vendor = this.getAttribute('data-vendor');
+                
+                // Update active state
+                vendorFilters.forEach(f => f.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update section header
+                if (vendor === 'all') {
+                    sectionTitle.textContent = 'Latest Reviews';
+                    sectionDescription.textContent = 'Our most recent in-depth product reviews';
+                } else if (vendor === 'amazon') {
+                    sectionTitle.textContent = 'Amazon Products';
+                    sectionDescription.textContent = 'Browse our Amazon product reviews and deals';
+                } else if (vendor === 'bestbuy') {
+                    sectionTitle.textContent = 'Best Buy Products';
+                    sectionDescription.textContent = 'Electronics and tech from Best Buy';
+                } else if (vendor === 'rei') {
+                    sectionTitle.textContent = 'REI Outdoor Gear';
+                    sectionDescription.textContent = 'Adventure equipment and outdoor gear';
+                } else if (vendor === 'dealers') {
+                    sectionTitle.textContent = 'Auto Dealers';
+                    sectionDescription.textContent = 'Vehicles from trusted dealers';
+                }
+                
+                // Filter products
+                productCards.forEach(product => {
+                    const productVendor = product.getAttribute('data-vendor');
+                    let matchesFilter = vendor === 'all' || productVendor === vendor;
+                    
+                    if (matchesFilter) {
+                        product.style.display = 'flex';
+                        product.style.animation = 'fadeInUp 0.5s ease-out';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
             });
         });
         
