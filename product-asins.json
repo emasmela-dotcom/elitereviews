@@ -1,0 +1,206 @@
+{
+  "amazonTag": "YOUR_TAG",
+  "products": [
+    {
+      "name": "MacBook Pro 16\" M3 Max",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "MacBook Pro M3 Max 16 inch"
+    },
+    {
+      "name": "iPhone 15 Pro Max",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "iPhone 15 Pro Max"
+    },
+    {
+      "name": "Dell XPS 15 (2025)",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Dell XPS 15 2025"
+    },
+    {
+      "name": "Sony WH-1000XM5",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Sony WH-1000XM5 headphones"
+    },
+    {
+      "name": "LG C3 OLED 65\"",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "LG C3 OLED 65 inch TV"
+    },
+    {
+      "name": "Sony A7 IV Mirrorless",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Sony A7 IV camera"
+    },
+    {
+      "name": "Samsung Galaxy S24 Ultra",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Samsung Galaxy S24 Ultra"
+    },
+    {
+      "name": "iPad Pro 12.9\" M2",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "iPad Pro 12.9 M2"
+    },
+    {
+      "name": "ASUS ROG Zephyrus G14",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "ASUS ROG Zephyrus G14"
+    },
+    {
+      "name": "DJI Mini 4 Pro Drone",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "DJI Mini 4 Pro"
+    },
+    {
+      "name": "Honda CRF450R",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Honda CRF450R"
+    },
+    {
+      "name": "Harley-Davidson Street Bob 114",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Harley Street Bob 114"
+    },
+    {
+      "name": "Polaris RZR Pro XP 4",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Polaris RZR Pro XP 4"
+    },
+    {
+      "name": "Yamaha YZ450F",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Yamaha YZ450F"
+    },
+    {
+      "name": "Can-Am Maverick X3 Turbo RR",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Can-Am Maverick X3 Turbo RR"
+    },
+    {
+      "name": "Honda Talon 1000X-4",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Honda Talon 1000X"
+    },
+    {
+      "name": "Yamaha Raptor 700R",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Yamaha Raptor 700R"
+    },
+    {
+      "name": "Kawasaki Ninja ZX-6R",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Kawasaki Ninja ZX-6R"
+    },
+    {
+      "name": "BMW R 1250 GS Adventure",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "BMW R 1250 GS Adventure"
+    },
+    {
+      "name": "KTM 450 SX-F",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "KTM 450 SX-F"
+    },
+    {
+      "name": "Yamaha WaveRunner VX",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Yamaha WaveRunner VX"
+    },
+    {
+      "name": "Sea-Doo Spark Trixx",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Sea-Doo Spark Trixx"
+    },
+    {
+      "name": "Hobie Mirage Pro Angler",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Hobie Mirage Pro Angler"
+    },
+    {
+      "name": "Kawasaki Jet Ski Ultra",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Kawasaki Jet Ski Ultra"
+    },
+    {
+      "name": "Red Paddle Co SUP",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Red Paddle Co SUP"
+    },
+    {
+      "name": "Tracker Fishing Boat",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Tracker fishing boat"
+    },
+    {
+      "name": "Bennington Pontoon",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Bennington pontoon boat"
+    },
+    {
+      "name": "Sea-Doo Wake Pro",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Sea-Doo Wake Pro"
+    },
+    {
+      "name": "Boston Whaler Montauk",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Boston Whaler Montauk"
+    },
+    {
+      "name": "Perception Pescador Kayak",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Perception Pescador kayak"
+    },
+    {
+      "name": "2025 Ford F-150 Lightning",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Ford F-150 Lightning 2025"
+    },
+    {
+      "name": "2025 Honda CR-V Hybrid",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Honda CR-V Hybrid 2025"
+    },
+    {
+      "name": "2025 Tesla Model 3",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Tesla Model 3 2025"
+    },
+    {
+      "name": "2025 BMW X5 M60i",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "BMW X5 M60i 2025"
+    },
+    {
+      "name": "2025 Mazda CX-5 Turbo",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Mazda CX-5 Turbo 2025"
+    },
+    {
+      "name": "2025 RAM 1500 Limited",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "RAM 1500 Limited 2025"
+    },
+    {
+      "name": "2025 Toyota RAV4 Prime",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Toyota RAV4 Prime 2025"
+    },
+    {
+      "name": "2025 Porsche Cayenne S",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Porsche Cayenne S 2025"
+    },
+    {
+      "name": "2025 Subaru Outback Wilderness",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Subaru Outback Wilderness 2025"
+    },
+    {
+      "name": "2025 Chevrolet Silverado",
+      "asin": "PRODUCT_ASIN",
+      "searchTerm": "Chevrolet Silverado 2025"
+    }
+  ]
+}
+
